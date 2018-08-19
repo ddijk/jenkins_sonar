@@ -1,4 +1,6 @@
 docker-compose -f jenkins_sonar.yml up
 
- # clone a repo:
+# git node from https://github.com/jkarlosb/git-server-docker
+
+# clone a repo:
 git clone ssh://git@localhost:2222/git-server/repos/aap
