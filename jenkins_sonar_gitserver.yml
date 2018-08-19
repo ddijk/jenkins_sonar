@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  gitserver:
+     image: jkarlos/git-server-docker:latest
+     ports:
+        - "2222:22"
+     volumes: 
+        - ~/git-server/keys:/git-server/keys 
+        - ~/git-server/repos:/git-server/repos
+  sonarqube:
+     image: sonarqube:latest
+     expose:
+        - "9000"
+        - "9092"
+     ports:
+        - "9000:9000"
+        - "9092:9092"
+  jenkins:
+     image: jenkins/jenkins:lts
+     expose:
+        - "5000"
+        - "8080"
+     ports:
+        - "8081:8080"
+     volumes: 
+        - /Users/ddijk/_LOCAL_GIT_SHARE:/mnt
+     depends_on:
+       - sonarqube
