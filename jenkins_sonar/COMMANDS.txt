@@ -1,11 +1,17 @@
 docker-compose -f jenkins_sonar.yml up
-docker-compose -f jenkins_sonar_gitserver.yml up
-
-# git node from https://github.com/jkarlosb/git-server-docker
-
-# clone a repo:
-git clone ssh://git@localhost:2222/git-server/repos/calculator.git
 
 # Jenkins
 localhost:8081
 account: admin/admin
+
+# Plugins
+- Sonar Quality Gates Plugin
+- SonarQube Scanner for Jenkins
+
+
+
+#
+# tag images for LinkIT presentation
+#
+docker image tag jenkins/jenkins:lts dijkrosoft/jenkins:1.0
+docker image tag sonarqube:latest dijkrosoft/sonarqube:1.0

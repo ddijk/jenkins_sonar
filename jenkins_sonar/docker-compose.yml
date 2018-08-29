@@ -17,6 +17,6 @@ services:
      ports:
         - "8081:8080"
      volumes:
-        - /Users/ddijk/_LOCAL_GIT_SHARE:/mnt
+        - ~/_LOCAL_GIT_SHARE:/mnt
      depends_on:
        - sonarqube

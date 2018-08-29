@@ -1,4 +1,3 @@
-docker-compose -f jenkins_sonar.yml up
 docker-compose -f jenkins_sonar_gitserver.yml up
 
 # git node from https://github.com/jkarlosb/git-server-docker
