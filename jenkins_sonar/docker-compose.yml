@@ -1,16 +1,18 @@
-version: '2'
+version: '3.1'
 
 services:
   sonarqube:
-     image: dijkrosoft/sonarqube:1.0
+     image: sonarqube:latest
      expose:
         - "9000"
         - "9092"
      ports:
         - "9000:9000"
         - "9092:9092"
+     container_name: sq
+
   jenkins:
-     image: dijkrosoft/jenkins:1.0
+     image: jenkins/jenkins:lts
      expose:
         - "5000"
         - "8080"
@@ -20,3 +22,4 @@ services:
         - ~/_LOCAL_GIT_SHARE:/mnt
      depends_on:
        - sonarqube
+     container_name: jenk
