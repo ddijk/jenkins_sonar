@@ -6,8 +6,8 @@ services:
      ports:
         - "2222:22"
      volumes:
-        - ~/git-server/keys:/git-server/keys
-        - ~/git-server/repos:/git-server/repos
+        - ~/_LOCAL_GIT_SHARE/keys:/git-server/keys
+        - ~/_LOCAL_GIT_SHARE/repos:/git-server/repos
   sonarqube:
      image: sonarqube:latest
      expose:
@@ -17,7 +17,7 @@ services:
         - "9000:9000"
         - "9092:9092"
   jenkins:
-     image: dijkrosoft/jenkins:2.0
+     image: jenkins/jenkins:lts
      expose:
         - "5000"
         - "8080"
